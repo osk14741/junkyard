@@ -26,9 +26,39 @@
   </form>
     <input type="button" value="test" onclick="sthDo();">
     <input type="button" value="add" onclick="add();">
+    <input type="button" value="submit" onclick="submit();">
 
 
     <script>
+        function submit(){
+            let form = document.createElement("form");
+            form.action = "/problem_result";
+            form.method = "post";
+            form.style = "display:none;"
+
+            let input = document.createElement("input");
+            let problem_list = [];
+            let problem_form = $("form[name=problem_form]");
+            for(let i = 0; i < problem_form.length; i++){
+                console.log(i);
+                // validation
+                console.log(problem_form.eq(i).children("input[name=title]").val())
+                console.log(problem_form.eq(i).children("input[name=content]").val())
+                problem_list.push(problem_form.eq(i).serializeArray())
+            }
+            problem_list.forEach(val => console.log(val));
+            console.log(problem_list)
+            let jsonString = JSON.stringify(problem_list);
+            console.log(jsonString);
+
+            input.type = "text";
+            input.value = jsonString;
+            input.name = "data";
+            form.appendChild(input);
+            document.getElementsByTagName("body")[0].appendChild(form);
+            form.submit();
+        }
+
         function deleteForm(obj){
             obj.parentElement.remove();
         }

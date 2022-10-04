@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--ajax-->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+<body>
+  <h1>problem</h1>
+        <form name="problem_form">
+            <input type="text" name="title" value="title1">
+            <input type="text" name="content" value="content1">
+
+        </form>
+      <form name="problem_form">
+          <input type="text" name="title" value="title2">
+          <input type="text" name="content" value="content2">
+      </form>
+  <form name="problem_form">
+      <input type="text" name="title" value="title3">
+      <input type="text" name="content" value="content3">
+  </form>
+  <form name="problem_form">
+      <input type="text" name="title" value="title4">
+      <input type="text" name="content" value="content4">
+  </form>
+  <form name="problem_form">
+      <input type="text" name="title" value="title5">
+      <input type="text" name="content" value="content5">
+  </form>
+    <input type="button" value="test" onclick="sthDo();">
+
+
+    <script>
+        function sthDo(){
+            let problem_list = [];
+            let problem_form = $("form[name=problem_form]");
+            for(let i = 0; i < problem_form.length; i++){
+                console.log(i);
+                console.log(problem_form.eq(i).children("input[name=title]").val())
+                console.log(problem_form.eq(i).children("input[name=content]").val())
+                problem_list.push(problem_form.eq(i).serialize())
+            }
+            problem_list.forEach(val => console.log(val));
+        }
+    </script>
+</body>
+</html>

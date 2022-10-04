@@ -31,9 +31,19 @@
       <input type="text" name="content" value="content5">
   </form>
     <input type="button" value="test" onclick="sthDo();">
+    <input type="button" value="add" onclick="add();">
 
 
     <script>
+        function add(){
+            let http = "<form name=\"problem_form\">\n" +
+                "      <input type=\"text\" name=\"title\" value=\"\">\n" +
+                "      <input type=\"text\" name=\"content\" value=\"\">\n" +
+                "  </form>"
+
+            $("form[name=problem_form]").last().after(http);
+        }
+
         function sthDo(){
             let problem_list = [];
             let problem_form = $("form[name=problem_form]");

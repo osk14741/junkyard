@@ -10,36 +10,35 @@
 <body>
   <h1>problem</h1>
         <form name="problem_form">
+            <input type="button" value="delete" onclick="deleteForm(this);">
             <input type="text" name="title" value="title1">
             <input type="text" name="content" value="content1">
-
         </form>
-      <form name="problem_form">
-          <input type="text" name="title" value="title2">
-          <input type="text" name="content" value="content2">
-      </form>
   <form name="problem_form">
+      <input type="button" value="delete" onclick="deleteForm(this);">
+      <input type="text" name="title" value="title2">
+      <input type="text" name="content" value="content2">
+  </form>
+  <form name="problem_form">
+      <input type="button" value="delete" onclick="deleteForm(this);">
       <input type="text" name="title" value="title3">
       <input type="text" name="content" value="content3">
-  </form>
-  <form name="problem_form">
-      <input type="text" name="title" value="title4">
-      <input type="text" name="content" value="content4">
-  </form>
-  <form name="problem_form">
-      <input type="text" name="title" value="title5">
-      <input type="text" name="content" value="content5">
   </form>
     <input type="button" value="test" onclick="sthDo();">
     <input type="button" value="add" onclick="add();">
 
 
     <script>
+        function deleteForm(obj){
+            $(obj).parent().remove();
+        }
+
         function add(){
-            let http = "<form name=\"problem_form\">\n" +
-                "      <input type=\"text\" name=\"title\" value=\"\">\n" +
-                "      <input type=\"text\" name=\"content\" value=\"\">\n" +
-                "  </form>"
+            let http = '<form name="problem_form">\n' +
+                '      <input type="button" value="delete" onclick="deleteForm(this);">\n' +
+                '      <input type="text" name="title" value="">\n' +
+                '      <input type="text" name="content" value="">\n' +
+                '  </form>'
 
             $("form[name=problem_form]").last().after(http);
         }

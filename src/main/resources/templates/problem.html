@@ -30,7 +30,7 @@
 
     <script>
         function deleteForm(obj){
-            $(obj).parent().remove();
+            obj.parentElement.remove();
         }
 
         function add(){
@@ -48,6 +48,7 @@
             let problem_form = $("form[name=problem_form]");
             for(let i = 0; i < problem_form.length; i++){
                 console.log(i);
+                // validation
                 console.log(problem_form.eq(i).children("input[name=title]").val())
                 console.log(problem_form.eq(i).children("input[name=content]").val())
                 problem_list.push(problem_form.eq(i).serializeArray())

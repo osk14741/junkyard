@@ -12,6 +12,17 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @Slf4j
 public class ProblemController {
+
+    @RequestMapping("/qqq")
+    public String quill(){
+        return "quilltest";
+    }
+
+    @RequestMapping("/summernote")
+    public String summernote(){
+        return "summernote";
+    }
+
     @RequestMapping("/problem")
     public String problem() {
         return "problem";

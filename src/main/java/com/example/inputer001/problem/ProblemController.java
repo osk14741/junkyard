@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 @Slf4j
 public class ProblemController {
 
-    @RequestMapping("/qqq")
+    @RequestMapping("/quill")
     public String quill(){
         return "quilltest";
     }

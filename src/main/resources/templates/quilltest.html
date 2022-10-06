@@ -5,19 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <!-- jquery -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- KaTeX dependency -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha256-M6KFoDq9eUpmogkDgw6+3R3ZgUPSuFXnQyr8tskSfQs=" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha256-FyuFDgL3AT2Wi7dlv82fSVvxe2rPx1rRSVtMOWeRp6k=" crossorigin="anonymous"></script>
+
+    <!-- Quill dependency -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="/static/summernote/js/mathquill4quill.js"></script>
+
+    <!-- MathQuill dependency -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@edtr-io/mathquill@0.11.0/build/mathquill.css" integrity="sha256-Qy/E+9TDDKI7fQ+y2hHMCBV96QiZs9mXWMOrD+/14IU=" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@edtr-io/mathquill@0.11.0/build/mathquill.min.js" integrity="sha256-1XldAnavTLoExr6gc0l1JD8cIzqRYhbi1eksEWsYdpY=" crossorigin="anonymous"></script>
+
+    <!-- mathquill4quill include -->
+    <link rel="stylesheet" href="/static/summernote/css/mathquill4quill.css">
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <!-- Image resize&drop module -->
+    <script src="/static/summernote/js/image-resize.min.js"></script>
+    <script src="/static/summernote/js/image-drop.min.js"></script>
 
 </head>
 <body>
-<div id="editor">
-
+<div id="editor_parent" style="width:400px; float:left;">
+    <div id="editor"></div>
 </div>
+<div id="preview_feature" style="float:left; margin-left:10px; width:400px; line-height:1em; border: 1px solid black;">
+    <p>Preview contents</p>
+</div>
+<script src="/static/summernote/js/index.js"></script>
 <script>
-    var quill = new Quill('#editor', {
-        theme: 'snow',
-    });
-</script>
 
+</script>
 </body>
 </html>

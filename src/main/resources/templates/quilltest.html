@@ -38,13 +38,6 @@
 
 </head>
 <body>
-<!--<div id="editor_parent" style="width:400px; float:left;">-->
-<!--    <div id="editor"></div>-->
-<!--</div>-->
-<!--<div id="preview_feature" style="float:left; margin-left:10px; width:400px; line-height:1em; border: 1px solid black;">-->
-<!--    <p>Preview contents</p>-->
-<!--</div>-->
-<!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>-->
 
 <div class="container">
     <h1>quill</h1>
@@ -53,6 +46,7 @@
     <hr>
     <div name="problem_list">
         <form name="quill_form">
+            <input type="button" value="del" onclick="delForm(this);">
             <div name="quill_editor" style="border:black solid 1px; width:400px;" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="modalOpen(this)">값을 입력하세요.</div>
             <input type="text" value="subject1" name="subject1">
             <input type="text" value="subject2" name="subject2">
@@ -90,6 +84,16 @@
 
 <script src="/static/summernote/js/index.js"></script>
 <script>
+    function delForm(obj){
+        let quill_form = document.getElementsByName("quill_form");
+        if(quill_form.length > 1){
+            let parent = obj.parentNode;
+            parent.remove();
+        } else {
+            alert("삭제 안됨.")
+        }
+    }
+
     function ajaxSubmit(){
         let forms = $("form[name=quill_form]")
         let outputList = [];
@@ -110,6 +114,12 @@
         problem_list[0].appendChild(form);
         form.appendChild(document.createElement("hr"));
 
+        let delBtn = document.createElement("input")
+        delBtn.type = 'button'
+        delBtn.value = "del"
+        delBtn.setAttribute("onClick", 'delForm(this);')
+        form.appendChild(delBtn);
+
         let div = document.createElement("div")
         div.name = "quill_editor";
         div.setAttribute("style", "border:black solid 1px; width:400px;")
@@ -125,9 +135,6 @@
             input.type = "text";
             form.appendChild(input);
         }
-
-
-
     }
 
     const list = [];

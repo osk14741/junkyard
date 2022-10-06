@@ -38,8 +38,25 @@
 <div id="preview_feature" style="float:left; margin-left:10px; width:400px; line-height:1em; border: 1px solid black;">
     <p>Preview contents</p>
 </div>
+
+<div onclick="modalOpen(this);"></div>
+
+<!--modal-->
+
 <script src="/static/summernote/js/index.js"></script>
 <script>
+    const list = [];
+    function modalOpen(obj) {
+        list.push(obj);
+    }
+
+    function modalSave() {
+        let a = list.pop();
+    }
+
+    function modalClose(){
+        list.clear();
+    }
 
 </script>
 </body>

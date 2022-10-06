@@ -10,21 +10,17 @@ const quillOptions = {
     placeholder:
         "Type text here.",
     theme: "snow",
-    bounds: "#editor_parent"
+    bounds: "#editor_parent",
+
 };
 
-const options = {};
+const options = {operators: [["\\sqrt[n]{x}", "\\nthroot"], ["\\frac{x}{y}","\\frac"]]};
 
 const enableMathQuillFormulaAuthoring = window.mathquill4quill();
 const quill = new Quill("#editor", quillOptions);
 enableMathQuillFormulaAuthoring(quill, options);
 
-quill.on('text-change', function(delta, oldDelta, source) {
-    if (source == 'api') {
-        let contents = quill.root.innerHTML;
-        $("#preview_feature").html(contents);
-    } else if (source == 'user') {
-        let contents = quill.root.innerHTML;
-        $("#preview_feature").html(contents);
-    }
+quill.on('text-change', function() {
+    let contents = quill.root.innerHTML;
+    $("#preview_feature").html(contents);
 });
